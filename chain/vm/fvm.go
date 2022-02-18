@@ -150,7 +150,7 @@ func (x *FvmExtern) VerifyConsensusFault(ctx context.Context, a, b, extra []byte
 
 	ret.Type = faultType
 	ret.Target = blockA.Miner
-	
+
 	return ret, totalGas
 }
 
@@ -279,11 +279,11 @@ func (vm *FVM) ApplyImplicitMessage(ctx context.Context, cmsg *types.Message) (*
 		},
 		GasCosts: &GasOutputs{
 			// TODO: do the other optional fields eventually
-			BaseFeeBurn:        abi.TokenAmount{},
-			OverEstimationBurn: abi.TokenAmount{},
+			BaseFeeBurn:        big.Zero(),
+			OverEstimationBurn: big.Zero(),
 			MinerPenalty:       ret.MinerPenalty,
 			MinerTip:           ret.MinerTip,
-			Refund:             abi.TokenAmount{},
+			Refund:             big.Zero(),
 			GasRefund:          0,
 			GasBurned:          0,
 		},
